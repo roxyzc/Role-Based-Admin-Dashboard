@@ -44,7 +44,7 @@
             </div>
              @endif 
 
-            <form action="{{ route('register.post') }}" method="POST" class="space-y-4 flex flex-col items-center"> <!-- Menambahkan flex dan items-center -->
+            <form action="{{ route('register') }}" method="POST" class="space-y-4 flex flex-col items-center"> <!-- Menambahkan flex dan items-center -->
                 @csrf
                 <input type="text" name="username" placeholder="Username" class="w-full p-3 text-lg bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <input type="email" name="email" placeholder="Email" class="w-full p-3 text-lg bg-gray-100 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
