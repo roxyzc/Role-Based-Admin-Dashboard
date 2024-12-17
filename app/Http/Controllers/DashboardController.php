@@ -21,17 +21,6 @@ class DashboardController extends Controller
 
         $teamQuery = Team::query();
 
-        // switch ($user->role->role_name) {
-        //     case 'manager':
-        //         $teamQuery->where('user_id', $user->id);
-        //         break;
-        //     case 'anggota':
-        //         $teamQuery->whereHas('members', function ($query) use ($user) {
-        //             $query->where('user_id', $user->id);
-        //         });
-        //         break;
-        // }
-
         if ($user->role->hasPermission('package_leader')) {
             $teamQuery->where('user_id', $user->id);
         }
@@ -63,7 +52,6 @@ class DashboardController extends Controller
                 return $team->tasks;
             });
         }
-
 
         $totalProjectsCompleted = $tasks->where('status', 'complete')->count();
 

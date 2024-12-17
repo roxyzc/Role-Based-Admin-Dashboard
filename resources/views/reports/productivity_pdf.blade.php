@@ -128,7 +128,7 @@
                             {{ $minutes }} menit
                         @endif
                     </td>
-                    <td>{{ $task->formatted_idle_time }} menit</td>
+                    <td>{{ $task->formatted_idle_time }}</td>
                 </tr>
             @endforeach
         </tbody>

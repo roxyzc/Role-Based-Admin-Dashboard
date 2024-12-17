@@ -116,10 +116,16 @@
                             <td>{{ $task->total_tasks }}</td>
                             <td>
                                 @php
-                                    $hours = floor($task->total_work_seconds / 3600); // Mengonversi detik ke jam
-                                    $minutes = floor(($task->total_work_seconds % 3600) / 60); // Sisa detik ke menit
+                                    $hours = floor($task->total_work_seconds / 3600);
+                                    $minutes = floor(($task->total_work_seconds % 3600) / 60);
                                 @endphp
-                                {{ $hours }} jam {{ $minutes }} menit
+                                @if($hours > 0)
+                                    {{ $hours }} jam {{ $minutes }} menit
+                                @elseif($hours > 0 && $minutes == 0)
+                                    {{ $hours }} jam
+                                @else
+                                    {{ $minutes }} menit
+                                @endif
                             </td>
                             <td>{{ $task->formatted_idle_time }}</td>
                         </tr>

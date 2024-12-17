@@ -24,7 +24,7 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('settings.index') }}" style="background-color:#19508C;">Pengaturan Akun</a>
             </li>
-            @if(optional(optional(Auth::user())->role)->hasPermission('package_notification')))
+            @if(optional(optional(Auth::user())->role)->hasPermission('package_notification'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('notifications.index') }}" style="background-color: white; color: #19508C; box-shadow: inset 0 0 0 2px #19508C;  ">Notifikasi</a>
             </li>

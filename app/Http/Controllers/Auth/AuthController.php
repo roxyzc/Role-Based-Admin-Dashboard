@@ -95,7 +95,7 @@ class AuthController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            'role_id' => $role->id
+            'role_id' => $role ? $role->id : null,
         ]);
 
         return redirect()->route('login')

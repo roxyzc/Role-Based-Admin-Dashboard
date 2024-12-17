@@ -106,13 +106,15 @@ class ReportController extends Controller
                 $idleHours = floor($task->total_idle_time / 60);
                 $idleMinutes = $task->total_idle_time % 60;
 
-                if ($idleHours) {
+                if ($idleHours > 0 && $idleMinutes == 0) {
+                    $task->formatted_idle_time = "{$idleHours} jam";
+                } else if ($idleHours) {
                     $task->formatted_idle_time = "{$idleHours} jam {$idleMinutes} menit";
                 } else {
                     $task->formatted_idle_time = "{$idleMinutes} menit";
                 }
             } else {
-                $task->formatted_idle_time = 0; // Set null jika tidak ada idle time
+                $task->formatted_idle_time = "0 menit"; // Set null jika tidak ada idle time
             }
 
             // Format waktu penyelesaian dengan kata "jam" dan "menit"
@@ -244,13 +246,15 @@ class ReportController extends Controller
                 $idleHours = floor($task->total_idle_time / 60);
                 $idleMinutes = $task->total_idle_time % 60;
 
-                if ($idleHours) {
+                if ($idleHours > 0 && $idleMinutes == 0) {
+                    $task->formatted_idle_time = "{$idleHours} jam";
+                } else if ($idleHours) {
                     $task->formatted_idle_time = "{$idleHours} jam {$idleMinutes} menit";
                 } else {
                     $task->formatted_idle_time = "{$idleMinutes} menit";
                 }
             } else {
-                $task->formatted_idle_time = 0; // Set null jika tidak ada idle time
+                $task->formatted_idle_time = "0 menit"; // Set null jika tidak ada idle time
             }
 
             // Format waktu penyelesaian dengan kata "jam" dan "menit"
