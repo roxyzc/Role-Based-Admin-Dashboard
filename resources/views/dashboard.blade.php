@@ -190,29 +190,29 @@
         </div>
 
         @if(Auth::user()->role->hasPermission('package_log_activity'))
-        <div class="col mt-5">
-            <div class="card shadow-sm" style="border-radius: 20px">
-                <div class="card-body p-5">
-                    <h5 class="card-title mb-0">Aktivitas Terbaru</h5>
-                    <div class="list-group mt-3">
-                        @foreach($logs as $log)
-                        <div class="list-group-item d-flex align-items-center border-0 py-3">
-                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
-                            <div class="ms-3 w-100">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="fw-semibold">{!! $log->description !!}</span>
-                                    <span class="text-muted small">Terakhir Dibuka: {{ $log->created_at->translatedFormat('l, d F Y H:i') }}</span>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        <div class="text-center mt-3">
-                            <a href="{{ route('activity.history') }}" class="btn w-100 text-white" style="background-color: #19508C;">Lihat Semua</a>
-                        </div>
-                    </div>
-                </div>               
-            </div>
-        </div>
+          <div class="col mt-5">
+              <div class="card shadow-sm" style="border-radius: 20px">
+                  <div class="card-body p-5">
+                      <h5 class="card-title mb-0">Aktivitas Terbaru</h5>
+                      <div class="list-group mt-3">
+                          @foreach($logs as $log)
+                          <div class="list-group-item d-flex align-items-center border-0 py-3">
+                              <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                              <div class="ms-3 w-100">
+                                  <div class="d-flex justify-content-between align-items-center">
+                                      <span class="fw-semibold">{!! $log->description !!}</span>
+                                      <span class="text-muted small">Terakhir Dibuka: {{ $log->created_at->translatedFormat('l, d F Y H:i') }}</span>
+                                  </div>
+                              </div>
+                          </div>
+                          @endforeach
+                          <div class="text-center mt-3">
+                              <a href="{{ route('activity.history') }}" class="btn w-100 text-white" style="background-color: #19508C;">Lihat Semua</a>
+                          </div>
+                      </div>
+                  </div>               
+              </div>
+          </div>
         @endif
     </div>
 </div>

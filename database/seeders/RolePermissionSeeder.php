@@ -27,8 +27,8 @@ class RolePermissionSeeder extends Seeder
             'package_notification',
             'package_delete_task',
             'package_full_reports',
-            'package_full_performance'
-
+            'package_add_member',
+            'package_create_task',
         ];
 
         foreach ($permissions as $permissionName) {
@@ -38,7 +38,6 @@ class RolePermissionSeeder extends Seeder
         // Buat Roles
         $roles = [
             'admin' => [
-                'package_leader',
                 'package_log_activity',
                 'package_performance',
                 'package_edit_team',
@@ -47,7 +46,6 @@ class RolePermissionSeeder extends Seeder
                 'package_reports',
                 'package_notification',
                 'package_delete_task',
-                'package_full_reports',
             ],
             'anggota' => ['package_performance', 'package_log_activity', 'package_reports', 'package_notification'],
         ];

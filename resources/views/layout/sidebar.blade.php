@@ -6,7 +6,7 @@
       </a>
     </div>
     <nav>
-  @if(optional(optional(Auth::user())->role)->role_name != null)
+@if(optional(optional(Auth::user())->role)->role_name != null)
   <a href="{{ route('dashboard') }}" 
      class="nav-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" 
      style="color: #FFFFFF;">
@@ -14,64 +14,57 @@
     <span>Dashboard</span>
   </a>
   
-  @if(Auth::user()->role->role_name == 'admin')
-  <a href="{{ route('admin.management_peran') }}" 
-     class="nav-link {{ in_array(Route::currentRouteName(), ['admin.management_peran', 'roles.create', 'roles.edit']) ? 'active' : '' }}" 
-     style="color: #FFFFFF;">
-    <i class="fas fa-users"></i>
-    <span>Manajemen Peran</span>
-  </a>
-  @endif
-  
-  @if(Auth::user()->role->haspermission('package_log_activity'))
-    <a href="{{ route('activity.history') }}" 
-      class="nav-link {{ Route::currentRouteName() === 'activity.history' ? 'active' : '' }}" 
+    @if(Auth::user()->role->role_name == 'admin')
+    <a href="{{ route('admin.management_peran') }}" 
+      class="nav-link {{ in_array(Route::currentRouteName(), ['admin.management_peran', 'admin.management_peran.detail','roles.create', 'roles.edit']) ? 'active' : '' }}" 
       style="color: #FFFFFF;">
-      <i class="fas fa-chart-line"></i>
-      <span>Aktivitas</span>
+      <i class="fas fa-users"></i>
+      <span>Manajemen Peran</span>
     </a>
-  @endif
+    @endif
+    
+    @if(Auth::user()->role->haspermission('package_log_activity'))
+      <a href="{{ route('activity.history') }}" 
+        class="nav-link {{ Route::currentRouteName() === 'activity.history' ? 'active' : '' }}" 
+        style="color: #FFFFFF;">
+        <i class="fas fa-chart-line"></i>
+        <span>Aktivitas</span>
+      </a>
+    @endif
   
-  @if(Auth::user()->role->hasPermission('package_performance'))
-  <a href="{{ route('kinerja') }}" 
-     class="nav-link {{ Route::currentRouteName() === 'kinerja' ? 'active' : '' }}" 
-     style="color: #FFFFFF;">
-    <i class="fas fa-tachometer-alt"></i>
-    <span>Kinerja</span>
-  </a>
-  @endif
-  
-  @if(Auth::user()->role->role_name == 'admin' || (Auth::user()->role->hasPermission('package_workload') && Auth::user()->role->hasPermission('package_leader')))
-    <a href="{{ route('teams.index') }}" 
-       class="nav-link {{ in_array(Route::currentRouteName(), ['teams.index', 'teams.create', 'teams.edit', 'teams.addMemberForm', 'teams.show', 'teams.tasks.create', 'workload', 'tasks.show']) ? 'active' : '' }}" 
-       style="color: #FFFFFF;">
-      <i class="fas fa-clipboard-list"></i>
-      <span>Beban Kerja</span>
-    </a>
-  @elseif(Auth::user()->role->hasPermission('package_workload'))
-    <a href="{{ route('workload') }}" 
-       class="nav-link {{ in_array(Route::currentRouteName(), ['workload', 'tasks.show']) ? 'active' : '' }}" 
-       style="color: #FFFFFF;">
-      <i class="fas fa-clipboard-list"></i>
-      <span>Beban Kerja</span>
-    </a>
-  @endif
-  
-  @if(Auth::user()->role->hasPermission('package_reports'))
-  <a href="{{ route('reports.index') }}" 
-     class="nav-link {{ Route::currentRouteName() === 'reports.index' ? 'active' : '' }}" 
-     style="color: #FFFFFF;">
-    <i class="fas fa-file-alt"></i>
-    <span>Laporan</span>
-  </a>
-  @endif
-  @else
-    <a href="{{ route('activity.history') }}" 
-      class="nav-link {{ Route::currentRouteName() === 'activity.history' ? 'active' : '' }}" 
+    @if(Auth::user()->role->hasPermission('package_performance'))
+    <a href="{{ route('kinerja') }}" 
+      class="nav-link {{ Route::currentRouteName() === 'kinerja' ? 'active' : '' }}" 
       style="color: #FFFFFF;">
-    <i class="fas fa-chart-line"></i>
-    <span>Aktivitas</span>
+      <i class="fas fa-tachometer-alt"></i>
+      <span>Kinerja</span>
     </a>
+    @endif
+  
+    @if(Auth::user()->role->role_name == 'admin' || (Auth::user()->role->hasPermission('package_workload') && Auth::user()->role->hasPermission('package_leader')))
+      <a href="{{ route('teams.index') }}" 
+        class="nav-link {{ in_array(Route::currentRouteName(), ['teams.index', 'teams.create', 'teams.edit', 'teams.addMemberForm', 'teams.show', 'teams.tasks.create', 'workload', 'tasks.show']) ? 'active' : '' }}" 
+        style="color: #FFFFFF;">
+        <i class="fas fa-clipboard-list"></i>
+        <span>Beban Kerja</span>
+      </a>
+    @elseif(Auth::user()->role->hasPermission('package_workload'))
+      <a href="{{ route('workload') }}" 
+        class="nav-link {{ in_array(Route::currentRouteName(), ['workload', 'tasks.show']) ? 'active' : '' }}" 
+        style="color: #FFFFFF;">
+        <i class="fas fa-clipboard-list"></i>
+        <span>Beban Kerja</span>
+      </a>
+    @endif
+  
+    @if(Auth::user()->role->hasPermission('package_reports'))
+    <a href="{{ route('reports.index') }}" 
+      class="nav-link {{ Route::currentRouteName() === 'reports.index' ? 'active' : '' }}" 
+      style="color: #FFFFFF;">
+      <i class="fas fa-file-alt"></i>
+      <span>Laporan</span>
+    </a>
+    @endif
   @endif
 
   <hr class="my-4">
