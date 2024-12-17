@@ -195,7 +195,7 @@
                   <div class="card-body p-5">
                       <h5 class="card-title mb-0">Aktivitas Terbaru</h5>
                       <div class="list-group mt-3">
-                        @if($logs->count() > 0)
+                        @if(Optional($logs)->count() > 0)
                           @foreach($logs as $log)
                           <div class="list-group-item d-flex align-items-center border-0 py-3">
                               <i class="bi bi-check-circle-fill text-success fs-4"></i>
