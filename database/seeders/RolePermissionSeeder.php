@@ -29,6 +29,7 @@ class RolePermissionSeeder extends Seeder
             'package_full_reports',
             'package_add_member',
             'package_create_task',
+            'package_workload',
         ];
 
         foreach ($permissions as $permissionName) {

@@ -195,6 +195,7 @@
                   <div class="card-body p-5">
                       <h5 class="card-title mb-0">Aktivitas Terbaru</h5>
                       <div class="list-group mt-3">
+                        @if($logs->count() > 0)
                           @foreach($logs as $log)
                           <div class="list-group-item d-flex align-items-center border-0 py-3">
                               <i class="bi bi-check-circle-fill text-success fs-4"></i>
@@ -209,6 +210,14 @@
                           <div class="text-center mt-3">
                               <a href="{{ route('activity.history') }}" class="btn w-100 text-white" style="background-color: #19508C;">Lihat Semua</a>
                           </div>
+                        @else
+                          <div class="list-group-item d-flex align-items-center border-0 py-3">
+                            <div class="text-center w-100">
+                                <i class="bi bi-info-circle text-muted fs-3"></i>
+                                <p class="text-muted mt-2 mb-0">Belum ada aktivitas terbaru.</p>
+                            </div>
+                          </div>
+                        @endif
                       </div>
                   </div>               
               </div>
