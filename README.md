@@ -29,7 +29,7 @@ Organisasi dengan kebutuhan manajemen akses, termasuk perusahaan IT, lembaga pem
 4.	Wawasan strategis dari laporan kinerja dan aktivitas.
 
 ## Panduan instalasi projek:
-## -	Instalasi langsung dengan Laravel:
+## -	Instalasi dengan Laravel:
 1.	Pastikan anda sudah menginstall Git, PHP versi 7.4.33, MySQL, phpMyAdmin, dan Composer.
 2.	Buat folder baru.
 3.	Masuk ke dalam folder baru yang telah dibuat.
