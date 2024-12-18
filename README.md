@@ -1,5 +1,5 @@
-Role Based Admin Dashboard
-Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang dirancang untuk mengatur hak akses pengguna sekaligus memantau aktivitas, kinerja, beban kerja, dan waktu idle. Produk ini bertujuan meningkatkan keamanan sistem, efisiensi kerja tim, dan mendukung pengambilan keputusan berbasis data, sekaligus memastikan kepatuhan terhadap kebijakan keamanan.
+# Role Based Admin Dashboard
+## Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang dirancang untuk mengatur hak akses pengguna sekaligus memantau aktivitas, kinerja, beban kerja, dan waktu idle. Produk ini bertujuan meningkatkan keamanan sistem, efisiensi kerja tim, dan mendukung pengambilan keputusan berbasis data, sekaligus memastikan kepatuhan terhadap kebijakan keamanan.
 
 Tujuan Utama:
 1.	Mengelola akses secara ketat berdasarkan peran untuk meningkatkan keamanan.
