@@ -16,6 +16,7 @@ class AddIdleAndCompletionTimeToTasksTable extends Migration
         Schema::table('tasks', function (Blueprint $table) {
             $table->integer('idle_time')->default(0)->after('deadline');
             $table->timestamp('completion_time')->nullable()->after('idle_time');
+            $table->timestamp('last_idle_calculated')->nullable();
         });
     }
 
