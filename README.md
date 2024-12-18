@@ -8,8 +8,7 @@ Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang d
 4.	Mengelola beban kerja dan waktu idle guna meningkatkan produktivitas.
    
 ## Fitur Utama:
-•	Manajemen Akses Berbasis Peran:
-
+1. **Manajemen Akses Berbasis Peran:**
     Kemudahan mengatur, menambah, dan menghapus peran pengguna dengan hak akses yang disesuaikan.
 •	Monitoring Aktivitas Pengguna:
     Log aktivitas real-time, termasuk perubahan pada data sensitif.
