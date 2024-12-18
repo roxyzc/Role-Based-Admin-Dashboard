@@ -47,8 +47,9 @@ class RolePermissionSeeder extends Seeder
                 'package_reports',
                 'package_notification',
                 'package_delete_task',
+                'package_workload',
             ],
-            'anggota' => ['package_performance', 'package_log_activity', 'package_reports', 'package_notification'],
+            'anggota' => ['package_performance', 'package_log_activity', 'package_reports', 'package_notification', 'package_workload'],
         ];
 
         foreach ($roles as $roleName => $rolePermissions) {

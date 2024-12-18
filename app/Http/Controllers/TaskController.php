@@ -244,61 +244,73 @@ class TaskController extends Controller
         $completedTasks = $tasks->where('status', 'complete');
         $now = Carbon::now();
 
-        $totalIdleTimeInMinutes = 0;
-        $totalIdleTimeBeforeUpdate = 0;
+        // Periksa idle time
+        $totalIdleTimeInMinutes = Task::where('id_user', $userId)->sum('idle_time');
 
-        foreach ($tasks as $task) {
-            $deadline = Carbon::parse($task->deadline);
-            $existingIdleTime = $task->idle_time ?? 0;
-            $totalIdleTimeBeforeUpdate += $existingIdleTime;
+        // Cek tugas dalam progress dan yang overdue
+        $tasksInProgress = $tasks->where('status', 'progress');
+        $noTasksInProgress = $tasksInProgress->isEmpty();
+        $hasOverdueTasks = $tasksInProgress->filter(fn($task) => $now->greaterThan(Carbon::parse($task->deadline)))->isNotEmpty();
 
-            if ($task->status == 'complete' || $task->status == 'pending') {
-                if ($existingIdleTime > 0) {
-                    $totalIdleTimeInMinutes += $existingIdleTime;
-                }
-            }
+        if ($noTasksInProgress || $hasOverdueTasks) {
+            $totalIdleTimeInMinutesCalculated = false; // Flag untuk memastikan hanya sekali idle time ditambahkan
 
-            if ($task->status == 'progress' && $now->greaterThan($deadline)) {
-                $idleTimeInMinutes = $now->diffInMinutes($deadline);
+            foreach ($tasks as $task) {
+                $deadline = Carbon::parse($task->deadline);
                 $existingIdleTime = $task->idle_time ?? 0;
 
-                if ($existingIdleTime > 0) {
-                    $updatedIdleTime = $existingIdleTime + ($idleTimeInMinutes - $existingIdleTime);
-                } else {
-                    $updatedIdleTime = $idleTimeInMinutes;
-                }
-                $task->idle_time = $updatedIdleTime;
-                $task->save();
+                // Waktu terakhir diperiksa (dari completion_time atau deadline)
+                $lastCheckTime = $task->completion_time
+                    ? Carbon::parse($task->completion_time)
+                    : $deadline;
 
-                $totalIdleTimeInMinutes += $idleTimeInMinutes;
+                // Cek apakah idle time sudah dihitung sebelumnya
+                if (!$task->last_idle_calculated || Carbon::parse($task->last_idle_calculated)->diffInMinutes($now) > 0) {
+                    // Hitung idle time untuk tugas yang statusnya 'progress' dan overdue
+                    if ($task->status === 'progress' && $now->greaterThan($deadline)) {
+                        $idleTimeInMinutes = $now->diffInMinutes($deadline);
+                        $task->idle_time = $existingIdleTime + $idleTimeInMinutes;
+                        $task->completion_time = $now; // Perbarui waktu terakhir diperiksa
+                        $task->last_idle_calculated = $now; // Simpan waktu terakhir dihitung
+                        $task->save();
+
+                        $totalIdleTimeInMinutes += $idleTimeInMinutes;
+                    } elseif ($noTasksInProgress && ($task->status === 'pending' || $task->status === 'complete')) {
+                        // Jika belum ada penambahan waktu idle untuk tugas dengan status 'pending' atau 'complete'
+                        if (!$totalIdleTimeInMinutesCalculated) {
+                            // Hitung idle time hanya sekali
+                            $idleTimeInMinutes = $now->diffInMinutes($lastCheckTime);
+
+                            // Tambahkan waktu idle hanya jika ada selisih
+                            if ($idleTimeInMinutes > 0) {
+                                $task->idle_time = $existingIdleTime + $idleTimeInMinutes;
+                                $task->completion_time = $now; // Perbarui waktu terakhir diperiksa
+                                $task->save();
+
+                                $totalIdleTimeInMinutes += $idleTimeInMinutes;
+                            }
+
+                            // Tandai bahwa waktu idle sudah dihitung untuk tugas dengan status 'pending' atau 'complete'
+                            $totalIdleTimeInMinutesCalculated = true;
+                        }
+                    }
+                }
             }
         }
 
-        if ($totalIdleTimeInMinutes != $totalIdleTimeBeforeUpdate) {
-            $totalHours = floor($totalIdleTimeInMinutes / 60);
-            $totalMinutes = $totalIdleTimeInMinutes % 60;
-
-            $formattedIdleTime = $totalHours > 0
-                ? "{$totalHours} jam {$totalMinutes} menit"
-                : "{$totalMinutes} menit";
-
-            ActivityLog::create([
-                'user_id' => $tasks->first()->id_user,
-                'activity_type' => 'Waktu idle diperbarui',
-                'description' => "Total waktu idle anda menjadi {$formattedIdleTime}.",
-            ]);
-        }
-
+        // Format idle time
         $totalHours = floor($totalIdleTimeInMinutes / 60);
         $totalMinutes = $totalIdleTimeInMinutes % 60;
-
         $formattedIdleTime = $totalHours > 0
             ? "{$totalHours} jam {$totalMinutes} menit"
             : "{$totalMinutes} menit";
 
+        // Query dan pagination tugas
         $tasksQuery = Task::with('team')
-            ->where('id_user', $userId);
-
+            ->where('id_user', $userId)
+            ->where(function ($query) use ($search) {
+                $query->where('task_name', 'like', "%$search%");
+            });
 
         $tasksQuery->where(function ($query) use ($search) {
             $query->where('task_name', 'like', "%$search%");

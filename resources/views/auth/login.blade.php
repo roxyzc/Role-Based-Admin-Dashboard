@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,26 +13,37 @@
             padding: 0;
         }
 
+        .form-control {
+            border-radius: 18px;
+            width: 100%;
+            max-width: 542px;
+            margin: 0 auto;
+        }
+
         .btn-login {
-            background-color: #1098F7;
+            background-color: #19508C;
             color: white;
-            border-radius: 5px;
             padding: 7px 0;
             font-size: 1.1rem;
-            width: 40%;
+            width: 38%;
+            height: 45px;
+            border-radius: 18px;
         }
 
         .btn-login:hover {
-            background-color: #0877C3;
+            background-color: #174171;
+            color: #E6F4FE;
         }
 
         .btn-register {
             border: 2px solid #1098F7;
             color: white;
             background-color: rgba(16, 152, 247, 0.2);
-            border-radius: 5px;
+            border-radius: 18px;
             padding: 7px 40px;
             font-size: 1.1rem;
+            width: 28%;
+            height: 45px;
         }
 
         .btn-register:hover {
@@ -58,13 +68,86 @@
         .left-section {
             background-color: #E6F4FE;
         }
+
+        @media (max-width: 768px) {
+            .btn-login {
+                width: 80%;
+            }
+
+            .btn-register {
+                width: 80%;
+            }
+
+            .form-container {
+                width: 90%;
+            }
+
+            .left-section {
+                padding: 20px;
+            }
+
+            .col-12.col-md-6 {
+                padding: 10px;
+            }
+
+            .form-control {
+                max-width: 100%;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .d-flex {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .form-container h2 {
+                margin-bottom: 20px;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-login {
+                width: 90%;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+
+            .form-container {
+                width: 90%;
+            }
+
+            .social-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .d-flex {
+                flex-direction: row;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .form-container h2 {
+                margin-top: 160px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="d-flex vh-100 flex-row">
-        <!-- Bagian Kiri - Login Form -->
-        <div class="w-50 d-flex flex-column justify-content-center align-items-center left-section">
+<div class="d-flex flex-column flex-md-row vh-100">
+    <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center left-section">
             <a href="{{ route('landing.page') }}" class="position-absolute top-0 start-0 p-4 text-primary fs-4 fw-bold">
                 <img src="{{ asset('images/tracking.id.png') }}" alt="logo" class="img-fluid" style="max-width: 200px">
             </a>
@@ -94,15 +177,15 @@
 
                 <form action="{{ route('login') }}" method="POST" class="d-flex flex-column gap-3">
                     @csrf
-                    <input type="email" name="email" placeholder="Email" class="form-control p-3" style="border-radius: 5px;" required>
-                    <input type="password" name="password" placeholder="Password" class="form-control p-3" style="border-radius: 5px;" required>
+                    <input type="email" name="email" placeholder="Email" class="form-control p-3"required>
+                    <input type="password" name="password" placeholder="Password" class="form-control p-3"required>
                     <div class="d-flex justify-content-between">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input me-2"> Simpan Login Saya
                         </label>
                         <a href="{{ route('forgot.password') }}" class="text-primary">Lupa Password</a>
                     </div>
-                    <button type="submit" class="btn fw-semibold btn-login mx-auto" style="background-color:#19508C">Login</button>
+                    <button type="submit" class="btn fw-semibold btn-login mx-auto">Login</button>
                 </form>
             </div>
 
@@ -113,21 +196,17 @@
             </div>
 
             <div class="d-flex justify-content-center gap-3">
-                <a href="#" class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center social-icon">
-                    <i class="fab fa-facebook-f"></i>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="{{ asset('images/logofacebook.png') }}" alt="Facebook" style="width: 40px; height: 40px;">
                 </a>
-                <a href="#" class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center social-icon">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#" class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center social-icon">
-                    <i class="fab fa-linkedin-in"></i>
+                <a href="https://www.login.com" target="_blank">
+                    <img src="{{ asset('images/logogoogle.png') }}" alt="Google" style="width: 40px; height: 40px;">
                 </a>
             </div>
         </div>
 
-        <!-- Bagian Kanan - Register -->
-        <div class="w-50 d-flex flex-column justify-content-center align-items-center text-white px-5"
-            style="background-image: url('{{ asset('images/login.png') }}'); background-size: cover; background-position: center;">
+    <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center text-white px-5"
+        style="background-image: url('{{ asset('images/login.png') }}'); background-size: cover; background-position: center;">
             <h2 class="text-center fw-bold display-5 mb-4">
                 <div>Login Untuk</div>
                 <div>Melihat Kinerja</div>

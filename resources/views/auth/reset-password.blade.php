@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atur Ulang Password</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      .form-control {
+        border-radius: 18px;
+        width: 100%;
+        max-width: 542px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        border-radius: 18px;
+        width: 100%;
+        max-width: 542px;
+        padding: 0.75rem 1rem;
+        background-color: #19508C;
+        color: white;
+        border: 1px solid #19508C;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .btn:hover {
+        background-color: #174171;
+        color: #E6F4FE;
+      }
+  </style>
+  
 </head>
 <body>
 <div class="container-fluid" style="height: 100vh;">
@@ -17,7 +44,7 @@
       <h2 class="fs-2 fw-bold mb-4 text-center text-dark">Atur ulang password Anda</h2>
 
       @if($errors->any())
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show mb-2" style="max-width: 542px;  width: 100%; margin: 0 auto; border-radius: 18px;" role="alert">
           <ul class="mb-0 list-unstyled">
               @foreach ($errors->all() as $error)
                   <li class="small">{{ $error }}</li>
@@ -29,15 +56,14 @@
 
       <form action="{{ route('reset.password') }}" method="POST" id="resetPasswordForm">
         @csrf
-        <!-- Hidden token field, to be populated by JS -->
         <input type="hidden" name="token" id="token">
         
-        <div class="mb-2">
-          <input type="password" name="password" class="form-control p-3 mb-3" style="border-radius: 5px;" id="newPassword" placeholder="Masukkan password baru Anda" required>
-          <input type="password" name="confirm_password" class="form-control p-3 mb-3" style="border-radius: 5px;" id="confirmPassword" placeholder="Konfirmasi password baru Anda" required>
+        <div class="mb-4">
+          <input type="password" name="password" class="form-control p-3 mb-3" id="newPassword" placeholder="Masukkan password baru Anda" required>
+          <input type="password" name="confirm_password" class="form-control p-3 mb-3" id="confirmPassword" placeholder="Konfirmasi password baru Anda" required>
         </div>
         
-        <button type="submit" class="btn w-100" style="margin-top: 5px; background-color:#19508C; color: white; border: none;">Kirim</button>
+        <button type="submit" class="btn w-100">Kirim</button>
       </form>
     </div>
   </div>

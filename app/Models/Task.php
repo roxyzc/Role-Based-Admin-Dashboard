@@ -19,7 +19,8 @@ class Task extends Model
         'priority',
         'deadline',
         'idle_time',
-        'completion_time'
+        'completion_time',
+        'last_idle_calculated',
     ];
 
     public function team()

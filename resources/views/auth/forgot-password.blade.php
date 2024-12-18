@@ -5,21 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lupa Kata Sandi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-control {
+      border-radius: 18px;
+      width: 100%;
+      max-width: 542px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      border-radius: 18px;
+      width: 100%;
+      max-width: 542px;
+      padding: 0.75rem 1rem;
+      background-color: #19508C;
+      color: white;
+      border: 1px solid #19508C;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .btn:hover {
+      background-color: #174171;
+      color: #E6F4FE;
+    }
+
+  </style>
 </head>
 <body>
 <div class="container-fluid" style="height: 100vh;">
   <div class="row" style="height: 100%;">
-    <!-- Bagian Gambar -->
     <div class="col-md-6 d-flex align-items-center justify-content-center" style="background-color: #ffffff; padding: 0;">
       <img src="{{ asset('images/pww.jpg') }}" alt="Gambar Lupa Kata Sandi" class="img-fluid" style="margin: 0;">
     </div>
 
-    <!-- Bagian Form -->
     <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: #E6F4FE; padding: 0 50px;">
       <h2 class="fs-2 fw-bold mb-4 text-center text-dark">Lupa Password Anda?</h2>
       <p class="text-center mb-4">Masukkan alamat email Anda untuk mengatur ulang password</p>
       @if($errors->any())
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show mb-2" style="max-width: 542px;  width: 100%; margin: 0 auto; border-radius: 18px;" role="alert">
           <ul class="mb-0 list-unstyled">
               @foreach ($errors->all() as $error)
                   <li class="small">{{ $error }}</li>
@@ -30,22 +55,23 @@
       @endif
 
       @if (session('success'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="alert alert-success alert-dismissible fade show mb-2" style="max-width: 542px;  width: 100%; margin: 0 auto; border-radius: 18px;" role="alert">
           <ul class="mb-0 list-unstyled">
               <li class="small">{{ session('success') }}</li>
           </ul>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
+      
       <form action="{{ route('forgot.password') }}" method="POST">
         @csrf
-        <div class="mb-2">
-          <input type="email" name="email" class="form-control p-3" style="border-radius: 5px;" id="email" placeholder="Alamat Email Anda" required>
+        <div class="mb-4">
+          <input type="email" name="email" class="form-control p-3" id="email" placeholder="Alamat Email Anda" required>
         </div>
-        <button type="submit" class="btn w-100" style="margin-top: 5px; background-color:#19508C; color: white; border: none;">Kirim</button>
+        <button type="submit" class="btn w-100">Kirim</button>
       </form>
       <div class="text-center" style="margin-top: 20px; color: #6c757d;">
-        <a href="{{ route('login') }}" style="text-decoration: none; color: #007bff;">Kembali ke login</a>
+        <a href="{{ route('login') }}" style="text-decoration: none; color: #19508C;">Kembali ke login</a>
       </div>
     </div>
   </div>
