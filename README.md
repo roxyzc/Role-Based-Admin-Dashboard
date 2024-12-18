@@ -37,7 +37,7 @@ Organisasi dengan kebutuhan manajemen akses, termasuk perusahaan IT, lembaga pem
 5.	Masuk ke direktori projek yang baru di clone.
 6.	Jalankan perintah composer install.
 7.	Buat database baru di phpmyadmin.
-8.	Ubah file .env.example menjadi .env kemudian masukkan konfigurasi database nya. 
+8.	Ubah file .env.example menjadi .env kemudian masukkan konfigurasi database anda. 
 9.	Jalankan perintah php artisan key:generate.
 10.	Jalankan perintah php artisan storage:link.
 11.	Jalankan perintah php artisan migrate.
@@ -52,7 +52,7 @@ Organisasi dengan kebutuhan manajemen akses, termasuk perusahaan IT, lembaga pem
 5.	Masuk ke direktori projek yang baru di clone. 
 6.	Jalankan perintah composer install.
 7.	Buka phpMyAdmin melalui Laragon untuk membuat database baru.
-8.	Ubah file .env.example menjadi .env kemudian masukkan konfigurasi database nya. 
+8.	Ubah file .env.example menjadi .env kemudian masukkan konfigurasi database anda. 
 9.	Jalankan perintah php artisan key:generate.
 10.	Jalankan perintah php artisan storage:link.
 11.	Jalankan perintah php artisan migrate.
