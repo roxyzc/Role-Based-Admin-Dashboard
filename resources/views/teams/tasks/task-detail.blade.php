@@ -3,6 +3,16 @@
 @section('title', 'Detail Tugas')
 
 @section('content')
+<style>
+    .btn-outline-primary {
+        background-color: #19508C;
+        color:#ffffff;
+    }
+    .btn-outline-primary:hover {
+    background-color: #174171;
+    }
+
+</style>
 <div class="flex-grow-1 d-flex flex-column">
     <div class="d-flex justify-content-start align-items-center gap-3" style="margin-top: 120px;">
         <a href="{{Str::contains(url()->previous(), route('teams.show', '')) 
@@ -28,17 +38,17 @@
     
     <div class="card shadow-lg border-0 mt-3">
         <div class="card-header bg-white text-center text-primary py-4">
-            <h1 class="fw-bold mb-0">{{ $task->task_name }}</h1>
-            <p class="mb-0">Deadline: <strong>{{ $task->deadline }}</strong></p>
+            <h1 style="color: #19508C; font-weight: bold;">{{ $task->task_name }}</h1>
+            <p style="color: #19508C; font-weight: bold;">Deadline: <strong>{{ $task->deadline }}</strong></p>
         </div>
         <div class="card-body">
             <div class="row mb-4">
                 <div class="col-lg-7">
-                    <h5 class="text-primary fw-bold">Deskripsi Tugas</h5>
+                    <h5 style="color: #19508C; font-weight: bold;">Deskripsi Tugas</h5>
                     <p>{{ $task->description }}</p>
                 </div>
                 <div class="col-lg-5">
-                    <h5 class="text-primary fw-bold">Detail</h5>
+                    <h5 style="color: #19508C; font-weight: bold;">Detail</h5>
                     <p><strong>Tim:</strong> {{$name_team}}</p>
                     @if(Auth::user()->role->role_name != 'anggota')
                         <p><strong>User:</strong> {{$name_user}}</p>
@@ -67,7 +77,7 @@
 
             <div class="row mb-4">
                 <div class="col-12">
-                    <h5 class="text-primary fw-bold">File</h5>
+                    <h5 style="color: #19508C; font-weight: bold;">File</h5>
                     <div class="border rounded p-3 shadow-sm">
                         <iframe id="file-preview" 
                             src="{{ $task->file ? asset('storage/' . $task->file) : '' }}" 
@@ -90,13 +100,13 @@
 
             <div class="row mb-4">
                 <div class="col-12">
-                    <h5 class="text-primary fw-bold">Upload File</h5>
+                    <h5 style="color: #19508C; font-weight: bold;">Upload File</h5>
                     <form action="{{ route('tasks.uploadFile', $task->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="input-group">
                             <input type="file" name="file" class="form-control" id="file-input" accept=".pdf,.txt,.png,.jpg" required>
                             <button type="submit" class="btn btn-success">
-                                <i class="bi bi-upload"></i> Upload
+                                <i class="bi bi-upload" ></i> Upload
                             </button>
                         </div>
                         <small class="text-muted d-block mt-1">Jenis file yang diizinkan: PDF, TXT, JPG, PNG, JPEG. Maksimal 10 MB.</small>

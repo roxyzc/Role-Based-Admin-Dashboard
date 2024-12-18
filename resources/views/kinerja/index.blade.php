@@ -4,79 +4,115 @@
 
 @section('content')
 <style>
-.card {
-    background-color: white;
-}
+    .card {
+        background-color: white;
+    }
 
-.hover-blue:hover {
-    background-color: #1098F7; 
-    color: white;
-}
+    .hover-blue:hover {
+        background-color: #1098F7; 
+        color: white;
+    }
 
-.hover-blue:hover h6,
-.hover-blue:hover p,
-.hover-blue:hover h2 {
-    color: white;
-}
+    .hover-blue:hover h6,
+    .hover-blue:hover p,
+    .hover-blue:hover h2 {
+        color: white;
+    }
 
-.card-body .center-content {
-    text-align: center;
-    margin-top: 8px;
-}
+    .card-body .center-content {
+        text-align: center;
+        margin-top: 8px;
+    }
 
-.center-content h2 {
-    margin: 0;
-    font-size: 32px;
-}
+    .center-content h2 {
+        margin: 0;
+        font-size: 32px;
+    }
 
-.center-content p {
-    margin: 0;
-    font-size: 14px;
-    color: #6c757d;
-}
+    .center-content p {
+        margin: 0;
+        font-size: 14px;
+        color: #6c757d;
+    }
 
-.chart-container {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
-}
+    .chart-container {
+        display: flex;
+        justify-content: center;  /* Pastikan elemen berada di tengah secara horizontal */
+        align-items: center;      /* Pastikan elemen berada di tengah secara vertikal */
+        gap: 50px;
+        margin-top: 20px;
+    }
 
-.chart-title {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-}
+    .chart-title {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 
-.legend {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-}
+    .legend {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+    }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-}
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
 
-.legend-color {
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
-}
+    .legend-color {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
 
-.legend-text {
-    font-size: 14px;
+    .legend-text {
+        font-size: 14px;
+    }
+
+@media (max-width: 1200px) {
+  .container-fluid.p-4 {
+    padding: 1.5rem;
+  }
+
+  .d-flex.flex-column.flex-md-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .col-md-4 {
+    flex-basis: 100%;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  canvas {
+    width: 80% !important;  
+    height: auto !important; 
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
     .chart-container {
         flex-direction: column;
         gap: 20px;
+        justify-content: center;  
+        align-items: center;     
     }
 
-    .container-fluid p-4 {
+    .container-fluid.p-4 {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -116,6 +152,11 @@
     .card-title {
         font-size: 18px;
     }
+
+    canvas {
+        width: 70% !important; 
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -134,13 +175,19 @@
     .legend-text {
         font-size: 12px;
     }
+
+    canvas {
+        width: 90% !important; 
+        margin: 0 auto; 
+    }
 }
+
 </style>
 
 <div class="flex-grow-1 d-flex flex-column" style="margin-left: 0px;">
 
 <div class="d-flex justify-content-start align-items-center gap-3 ps-4" style="margin-top: 120px;">
-    <a href="{{ route('dashboard') }}" class="btn fs-6" style="font-weight: bold; color: #FFFFFF; background-color: #19508C; border-color: #19508C;">&lt;</a>
+    <a href="{{ route('dashboard') }}" class="btn fs-6 btn-back" style="font-weight: bold; color: #FFFFFF; background-color: #19508C; border-color: #19508C;">&lt;</a>
     <div class="d-flex align-items-center">
         <span class="text-muted">Home &gt;</span>
         <div class="text-muted ms-2">Kinerja</div>
@@ -205,7 +252,8 @@
 <div class="col-md-12">
 <div class="card shadow-sm" style="border-radius:15px;">
     <div class="card-body">
-    <h5>Grafik Kinerja</h5>
+    <h6>Kinerja</h6>
+    <h5 class="fw-bold">Grafik Kinerja</h5>
     <div class="legend">
         <div class="legend-item">
         <div class="legend-color" style="background-color: #FF4D4D;"></div>

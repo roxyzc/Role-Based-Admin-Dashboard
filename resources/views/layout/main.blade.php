@@ -197,7 +197,7 @@
     @if(optional(optional(Auth::user())->role)->role_name != null)
       @if(Auth::user()->role->role_name != 'admin')
         <a href="{{ route('monetisasi.index') }}" class="btn position-relative" style="padding: 0; display: flex; align-items: center;">
-          <i class="fas fa-crown fs-4" style="color: #055994;"></i>
+          <i class="fas fa-crown fs-4 mb-1" style="color: #055994;"></i>
         </a>
       @endif
 
