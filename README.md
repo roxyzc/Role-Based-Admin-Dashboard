@@ -1,13 +1,13 @@
 # Role Based Admin Dashboard
-## Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang dirancang untuk mengatur hak akses pengguna sekaligus memantau aktivitas, kinerja, beban kerja, dan waktu idle. Produk ini bertujuan meningkatkan keamanan sistem, efisiensi kerja tim, dan mendukung pengambilan keputusan berbasis data, sekaligus memastikan kepatuhan terhadap kebijakan keamanan.
+Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang dirancang untuk mengatur hak akses pengguna sekaligus memantau aktivitas, kinerja, beban kerja, dan waktu idle. Produk ini bertujuan meningkatkan keamanan sistem, efisiensi kerja tim, dan mendukung pengambilan keputusan berbasis data, sekaligus memastikan kepatuhan terhadap kebijakan keamanan.
 
-Tujuan Utama:
+## Tujuan Utama:
 1.	Mengelola akses secara ketat berdasarkan peran untuk meningkatkan keamanan.
 2.	Memantau aktivitas pengguna untuk mendukung audit dan pengawasan.
 3.	Mengukur kinerja individu dan tim demi pengembangan sumber daya manusia (SDM).
 4.	Mengelola beban kerja dan waktu idle guna meningkatkan produktivitas.
    
-Fitur Utama:
+## Fitur Utama:
 •	Manajemen Akses Berbasis Peran:
     Kemudahan mengatur, menambah, dan menghapus peran pengguna dengan hak akses yang disesuaikan.
 •	Monitoring Aktivitas Pengguna:
@@ -19,17 +19,17 @@ Fitur Utama:
 •	Laporan dan Analitik:
     Laporan aktivitas, kinerja, dan tren penggunaan untuk pengambilan keputusan strategis.
     
-Target Pengguna:
+## Target Pengguna:
 Organisasi dengan kebutuhan manajemen akses, termasuk perusahaan IT, lembaga pemerintahan, institusi pendidikan, serta manajer yang ingin meningkatkan produktivitas tim.
 
-Keuntungan Pengguna:
+## Keuntungan Pengguna:
 1.	Pengelolaan akses yang aman dan efisien.
 2.	Pemahaman mendalam tentang kinerja tim untuk pengambilan keputusan.
 3.	Peningkatan produktivitas melalui pengurangan waktu idle.
 4.	Wawasan strategis dari laporan kinerja dan aktivitas.
 
-Panduan instalasi projek:
--	Instalasi langsung dengan Laravel:
+## Panduan instalasi projek:
+## -	Instalasi langsung dengan Laravel:
 1.	Pastikan anda sudah menginstall git, php versi 7.4.33, MySQL, phpMyAdmin, dan composer.
 2.	Buat folder baru.
 3.	Masuk ke dalam folder baru yang telah dibuat.
@@ -44,7 +44,7 @@ Panduan instalasi projek:
 12.	Jalankan perintah php artisan db:seed.
 13.	Terakhir, jalankan proyek dengan perintah php artisan serve.
 
--	Instalasi dengan laragon
+## -	Instalasi dengan laragon
 1.	Pastikan anda sudah menginstall git, php versi 7.4.33 dan composer.
 2.	masuk ke dalam folder laragon, kemudian folder www, dan buat folder baru di dalam folder www tersebut.
 3.	Masuk ke aplikasi laragon, kemudian start all, lalu masuk ke terminal.
