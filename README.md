@@ -45,8 +45,8 @@ Organisasi dengan kebutuhan manajemen akses, termasuk perusahaan IT, lembaga pem
 13.	Terakhir, jalankan proyek dengan perintah php artisan serve.
 
 ## -	Instalasi dengan laragon
-1.	Pastikan anda sudah menginstall git, php versi 7.4.33 dan composer.
-2.	masuk ke dalam folder laragon, kemudian folder www, dan buat folder baru di dalam folder www tersebut.
+1.	Pastikan anda sudah menginstall laragon, git, php versi 7.4.33, MySQL, phpMyAdmin, dan composer.
+2.	Masuk ke dalam folder laragon, kemudian folder www, dan buat folder baru di dalam folder www tersebut.
 3.	Masuk ke aplikasi laragon, kemudian start all, lalu masuk ke terminal.
 4.	Clone repository proyek dengan menjalankan perintah “git clone https://github.com/roxyzc/Role-Based-Admin-Dashboard.git”.
 5.	Masuk ke direktori projek yang baru di clone. 
