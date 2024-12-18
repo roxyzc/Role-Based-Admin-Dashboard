@@ -12,11 +12,11 @@ Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang d
    Kemudahan mengatur, menambah, dan menghapus peran pengguna dengan hak akses yang disesuaikan.
 2. **Monitoring Aktivitas Pengguna:**  
    Log aktivitas real-time, termasuk perubahan pada data sensitif.
-3. **Pengukuran Kinerja:**
+3. **Pengukuran Kinerja:**  
    Analitik KPI, grafik kinerja, dan laporan perbandingan individu-tim.
-4. **Pemantauan Beban Kerja dan Idle Time:**
+4. **Pemantauan Beban Kerja dan Idle Time:**  
    Monitoring distribusi tugas dan pencatatan waktu idle.
-5. **Laporan dan Analitik:**
+5. **Laporan dan Analitik:**  
    Laporan aktivitas, kinerja, dan tren penggunaan untuk pengambilan keputusan strategis.
     
 ## Target Pengguna:
