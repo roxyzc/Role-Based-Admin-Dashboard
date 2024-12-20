@@ -10,6 +10,7 @@
   </p>
 </div>
 
+
 ## Tentang Projek
 Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang dirancang untuk:
 - Mengatur hak akses pengguna.
@@ -17,7 +18,6 @@ Role Based Admin Dashboard adalah platform manajemen akses berbasis peran yang d
 
 Dashboard ini bertujuan untuk meningkatkan keamanan sistem, efisiensi kerja tim, mendukung pengambilan keputusan berbasis data, serta memastikan kepatuhan terhadap kebijakan keamanan.
 
----
 
 ## Tujuan Utama
 1. Mengelola akses secara ketat berdasarkan peran untuk meningkatkan keamanan.
@@ -25,7 +25,6 @@ Dashboard ini bertujuan untuk meningkatkan keamanan sistem, efisiensi kerja tim,
 3. Mengukur kinerja individu dan tim demi pengembangan sumber daya manusia (SDM).
 4. Mengelola beban kerja dan waktu idle untuk meningkatkan produktivitas.
 
----
 
 ## Fitur Utama
 1. **Manajemen Akses Berbasis Peran**  
@@ -39,7 +38,6 @@ Dashboard ini bertujuan untuk meningkatkan keamanan sistem, efisiensi kerja tim,
 5. **Laporan dan Analitik**  
    Laporan aktivitas, kinerja, dan tren penggunaan untuk mendukung pengambilan keputusan strategis.
 
----
 
 ## Target Pengguna
 Organisasi yang membutuhkan manajemen akses, termasuk:
@@ -48,7 +46,6 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
 3. Institusi pendidikan.
 4. Manajer yang ingin meningkatkan produktivitas tim.
 
----
 
 ## Keuntungan Pengguna
 1. Pengelolaan akses yang aman dan efisien.
@@ -56,12 +53,11 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
 3. Peningkatan produktivitas melalui pengurangan waktu idle.
 4. Wawasan strategis dari laporan kinerja dan aktivitas.
 
----
 
 ## Panduan Instalasi Projek
 
 ### Instalasi dengan Laravel
-1. Pastikan Anda sudah menginstall **Git**, **PHP versi 7.4.33**, **MySQL**, **phpMyAdmin**, dan **Composer**.
+1. Pastikan Anda sudah menginstall **Git**, **PHP ^7.4.33**, **MySQL**, **XAMPP** atau **Laragon**, dan **Composer**.
 2. Buat folder baru dan masuk ke dalam folder tersebut.
 3. Clone repository proyek:
    ```bash
@@ -86,28 +82,3 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
    php artisan db:seed
    php artisan serve
    ```
-
-### Instalasi dengan Laragon
-1. Pastikan Anda sudah menginstall **Laragon**, **Git**, **PHP versi 7.4.33**, **MySQL**, **phpMyAdmin**, dan **Composer**.
-2. Masuk ke folder `www` di dalam direktori Laragon, lalu buat folder baru.
-3. Buka terminal di aplikasi Laragon dan jalankan perintah:
-   ```bash
-   git clone https://github.com/roxyzc/Role-Based-Admin-Dashboard.git
-   ```
-4. Masuk ke direktori proyek:
-   ```bash
-   cd Role-Based-Admin-Dashboard
-   ```
-5. Jalankan perintah:
-   ```bash
-   composer install
-   ```
-6. Buka phpMyAdmin melalui Laragon untuk membuat database baru.
-7. Ubah nama file `.env.example` menjadi `.env`, lalu masukkan konfigurasi database Anda.
-8. Jalankan perintah berikut secara berurutan:
-   ```bash
-   php artisan key:generate
-   php artisan storage:link
-   php artisan migrate
-   php artisan db:seed
-   php artisan serve
