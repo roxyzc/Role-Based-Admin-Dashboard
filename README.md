@@ -82,3 +82,14 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
    php artisan db:seed
    php artisan serve
    ```
+
+## Contributors
+- [Ridho Pikriyansyah](https://www.instagram.com/ridh15_/)
+- [Dika Nurul Hidayat](https://www.instagram.com/dika.nrulhdyt/)
+- [Ridha Putri Adelia](https://www.instagram.com/)
+- [Febrian Eka Putra](https://www.instagram.com/febrianepp)
+- [Salma Salsabilla](https://www.instagram.com/)
+- [Yohanes Christtovian Wahyu Nugroho](https://www.instagram.com/)
+- [Laila Rahmadianti](https://www.instagram.com/)
+- [Robbyatul Adawiyyah](https://www.instagram.com/)
+- [I'zzatul Ma'wa](https://www.instagram.com/)
