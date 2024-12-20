@@ -86,7 +86,7 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
 ## Contributors
 - [Ridho Pikriyansyah](https://www.instagram.com/ridh15_/)
 - [Dika Nurul Hidayat](https://www.instagram.com/dika.nrulhdyt/)
-- [Ridha Putri Adelia](https://www.ridhadeliap_/)
+- [Ridha Putri Adelia](https://www.instagram.com/ridhadeliap_/)
 - [Febrian Eka Putra](https://www.instagram.com/febrianepp)
 - [Salma Salsabilla](https://www.instagram.com/)
 - [Yohanes Christtovian Wahyu Nugroho](https://www.instagram.com/)
