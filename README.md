@@ -77,7 +77,8 @@ Organisasi yang membutuhkan manajemen akses, termasuk:
    ```
 6. Buat database baru di phpMyAdmin.
 7. Ubah nama file `.env.example` menjadi `.env`, lalu masukkan konfigurasi database Anda.
-8. Jalankan perintah berikut secara berurutan:
+8. Masukkan detail konfigurasi database Anda ke dalam file `.env`
+9. Jalankan perintah berikut secara berurutan:
    ```bash
    php artisan key:generate
    php artisan storage:link
